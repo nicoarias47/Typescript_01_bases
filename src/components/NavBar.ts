@@ -1,6 +1,7 @@
 import { data } from "../data/navbar";
 
 const app = document.getElementById("app");
+const navContainer = document.getElementById("nav");
 
 const nav: HTMLElement = document.createElement("nav");
 const header: HTMLElement = document.createElement("header");
@@ -14,4 +15,4 @@ data.forEach((el) => {
 nav.innerHTML = menu;
 nav.classList.add("menu", "container");
 header.appendChild(nav);
-app?.appendChild(header);
+navContainer?.appendChild(header);
