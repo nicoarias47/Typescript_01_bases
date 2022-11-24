@@ -1,8 +1,7 @@
 import { Pokemon } from "../../interfaces/pokemons";
 import { printPokemon } from "./PrintPokemons";
-let pokemons: Pokemon[] = [];
 
-export const getPokemon = async (page: number) => {
+export const getPokemon = async (page: number): Promise<void> => {
   const resp = await fetch(
     `https://pokeapi.co/api/v2/pokemon?offset=${page}&limit=20`
   );
@@ -12,7 +11,9 @@ export const getPokemon = async (page: number) => {
   return setPokemon(data.results);
 };
 
-export const setPokemon = async (data: any) => {
+let pokemons: Pokemon[] = [];
+
+export const setPokemon = async (data: any): Promise<void> => {
   for (const url of data) {
     const resp = await fetch(url.url);
 

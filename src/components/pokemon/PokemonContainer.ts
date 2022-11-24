@@ -1,19 +1,17 @@
 import { getPokemon } from "./GetPokemon";
+import Loader from "../Loader";
 
-let loading: boolean = false;
+const container = document.querySelector(".loader");
 
-const getData = () => {
+const getData = async () => {
   try {
-    loading = true;
-
-    getPokemon(0);
+    Loader(true, container);
+    await getPokemon(200);
   } catch (error) {
     console.log(error);
   } finally {
-    loading = false;
+    Loader(false, container);
   }
 };
-
-const app = document.getElementById("app");
 
 getData();

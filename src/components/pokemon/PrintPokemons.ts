@@ -10,6 +10,7 @@ export const printPokemon = async (data: Pokemon[]) => {
     clone.querySelector("img")!.setAttribute("src", el.sprites.front_default);
     clone.querySelector(".card-title")!.textContent = el.name;
 
+    // save types to array for print
     const types: string[] = [];
 
     el.types.forEach((el) => {
